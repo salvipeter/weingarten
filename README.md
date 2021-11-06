@@ -1,6 +1,6 @@
 # Weingarten maps
 
-This program tests the invariability of Weingarten maps under parameterization and/or 3D rotation. For this, we take a cubic Bézier triangle and parameterize it in two completely different ways, resulting in the following two tensor product patches:
+This program tests the invariability of Weingarten maps under parameterization and/or 3D rotation. For this, we take a cubic Bézier triangle and [parameterize it](https://github.com/salvipeter/tensor-conversion) in two completely different ways, resulting in the following two tensor product patches:
 
 ![image](3.jpg "Surface 1")
 ![image](4.jpg "Surface 2")

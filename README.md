@@ -38,5 +38,5 @@ Properties:
 - normal curvature: *W(u) · u*
 - *K = (tr(W)^2 - tr(W^2)) / 2*
 - *H = tr(W) / 2*
-- Principal curvatures = eigenvalues
+- Principal curvatures = eigenvalues (+ a zero eigenvalue)
 - Principal directions = eigenvectors

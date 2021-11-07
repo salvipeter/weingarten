@@ -11,9 +11,9 @@ We also create a 3rd surface that has the same parameterization as the 2nd, but 
 
 Now:
 
-- The shape operator (Weingarten map) of S1 and S2 are different, but that of S2 and S3 are the same
+- The shape operators (Weingarten maps) of S1 and S2, written in the basis of the derivatives, are different, but those of S2 and S3 are the same
 
-- The curvature tensor (embedded Weingarten map) of S1 and S2 are the same, but that of S2 and S3 are different
+- The curvature tensors (embedded Weingarten maps) of S1 and S2 are the same, but those of S2 and S3 are different
 
 ## Shape operator / Weingarten map
 

@@ -15,6 +15,8 @@ Now:
 
 - The curvature tensors (embedded Weingarten maps) of S1 and S2 are the same, but those of S2 and S3 are different
 
+See also the same for [implicit surfaces](https://github.com/salvipeter/implicit-curvature).
+
 ## Shape operator / Weingarten map
 
 *S(u)* gives the (negated) *u*-derivative of the unit normal (the Gauss map), where *u* is a vector given in a basis of the tangent plane at a surface point. This is a symmetric, linear operator (expressible as a 2x2 matrix).

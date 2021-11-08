@@ -7,8 +7,8 @@
 \author{P\'eter Salvi}
 \maketitle
 
-Let $S$ denote an operator on a surface such that $S(u)$ is the
-(negated) derivative of the unit normal by $u$, i.e., for a fixed
+Let $S$ denote an operator on a surface such that $S(w)$ is the
+(negated) derivative of the unit normal by $w$, i.e., for a fixed
 point $\mathbf{p}$ of the surface $\mathbf{x}(u,v)$,
 \[S(w)=-\nabla_w\mathcal{G},\]
 where $\mathcal{G}$ is the Gauss map of the surface, and $w$ is a
@@ -70,7 +70,7 @@ $\mathbf{e}_2$, $\mathbf{n}$), bringing it into 3D space:
     \kappa_1 & 0 & 0\\
     0 & \kappa_2 & 0\\
     0 & 0 & 0
-  \end{pmatrix}
+  \end{pmatrix}.
 \]
 This is the \emph{embedded} Weingarten map, sometimes also called the
 curvature tensor (but this term is abused). All the properties still
@@ -93,4 +93,34 @@ while this matrix is exactly the same, independently of the
 parameterization, in exchange it \emph{does} depend on the
 coordinates, so e.g.~a rotation of 3D changes the elements of the
 matrix.
+
+For an implicitly defined surface $f(x,y,z)=0$ take two arbitrary
+perpendicular vectors ($\mathbf{u}$,$\mathbf{v}$) in the tangent
+plane, and let
+\begin{align*}
+  f_{uu}&=\mathbf{u}^\textsf{T}H_f\,\mathbf{u}, &
+  f_{uv}&=\mathbf{u}^\textsf{T}H_f\,\mathbf{v}, &
+  f_{vv}&=\mathbf{v}^\textsf{T}H_f\,\mathbf{v},
+\end{align*}
+where $H_f$ is the Hessian of $f$.
+If we denote the norm of the gradient with $f_n=\|\nabla f\|$,
+the shape operator can be expressed in ($\mathbf{u}$,$\mathbf{v}$) as
+\[
+  S=\frac{1}{f_n}
+  \begin{pmatrix}
+    f_{uu} & f_{uv} \\
+    f_{uv} & f_{vv}
+  \end{pmatrix}.
+  \]
+Solving the characteristic equation $(S-I_2\kappa_i)\mathbf{e}_i=0$ with $i\in\{1,2\}$ gives
+\[
+\mathbf{e}_i=\mathbf{u}f_{uv}+\mathbf{v}(\kappa_if_n-f_{uu})
+\quad\text{or}\quad
+\mathbf{e}_i=\mathbf{v}f_{uv}+\mathbf{u}(\kappa_if_n-f_{vv}),
+\footnote{Care should be taken to choose the formula that does not result in a null vector.}
+\]
+so we can compute the principal directions without eigendecomposition,
+since $\kappa_i$ can be derived from
+\[\kappa_i=H\pm\sqrt{H^2-K}.\]
+
 \end{document}

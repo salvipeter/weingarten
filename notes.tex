@@ -81,18 +81,17 @@ computed based on the projection of the given vector into the tangent plane.
 
 Now we can also use the axes of 3D space as a basis---which is also
 independent of parameterization---and write the matrix as
-\[\mathcal{W}=\mathbf{J}^\textsf{T}\cdot\mathbf{I\!I}\cdot\mathbf{J},\]
-where $\mathbf{J}$ is the $2\times3$ left pseudoinverse of the gradient:
-\[\mathbf{J}=
-\nabla\mathbf{x}^+=
-(\nabla\mathbf{x}^\textsf{T}\nabla\mathbf{x})^{-1}\nabla\mathbf{x}^\textsf{T}=
-\mathbf{I}^{-1}\nabla\mathbf{x}^\textsf{T}=
-(\nabla\mathbf{x}\cdot\mathbf{I}^{-1})^\textsf{T}.\]
+\[\mathcal{W}=(\mathbf{J}^+)^\textsf{T}\cdot\mathbf{I\!I}\cdot\mathbf{J}^+,\]
+where $\mathbf{J}^+$ is the left pseudoinverse of the Jacobian:
+\[\mathbf{J}^+=
+(\mathbf{J}^\textsf{T}\mathbf{J})^{-1}\mathbf{J}^\textsf{T}=
+\mathbf{I}^{-1}\mathbf{J}^\textsf{T}=
+(\mathbf{J}\cdot\mathbf{I}^{-1})^\textsf{T}.\]
 This formulation also has the advantage that its eigenvectors give the
 principal directions directly expressed in 3D coordinates. Note that
 while this matrix is exactly the same, independently of the
 parameterization, in exchange it \emph{does} depend on the
-coordinates, so e.g.~a rotation of 3D changes the elements of the
+coordinates, so e.g.~a rotation in 3D changes the elements of the
 matrix.
 
 For an implicitly defined surface $f(x,y,z)=0$ take two arbitrary

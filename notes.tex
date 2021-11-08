@@ -1,0 +1,96 @@
+\documentclass[a4paper]{article}
+
+\usepackage{amsmath}
+
+\begin{document}
+\title{Weingarten maps}
+\author{P\'eter Salvi}
+\maketitle
+
+Let $S$ denote an operator on a surface such that $S(u)$ is the
+(negated) derivative of the unit normal by $u$, i.e., for a fixed
+point $\mathbf{p}$ of the surface $\mathbf{x}(u,v)$,
+\[S(w)=-\nabla_w\mathcal{G},\]
+where $\mathcal{G}$ is the Gauss map of the surface, and $w$ is a
+vector in the tangent plane. This is the \emph{shape operator}, or
+Weingarten map---a symmetric, linear operator, expressible by a
+$2\times2$ matrix (which is also symmetric when the basis vectors are
+perpendicular). Note that $S$ is independent of the parameterization
+of $\mathbf{x}$ as long as the basis it is expressed in is
+parameterization-independent.
+
+This matrix has very nice properties:
+\begin{align*}
+  k(u)&=\langle S(u),u\rangle&&\text{(normal curvature)}\\
+  K&=|S|,&&\text{(Gaussian curvature)}\\
+  H&=\mathrm{tr}(S)/2,&&\text{(mean curvature)}
+\end{align*}
+and also the principal curvatures $\kappa_1$, $\kappa_2$ are the
+eigenvalues of $S$, and the principal directions $\mathbf{e}_1$,
+$\mathbf{e}_2$ are the corresponding eigenvectors (expressed in the
+basis of the matrix).
+
+If we write the matrix of $S$ in the basis $\mathbf{e}_1$,
+$\mathbf{e}_2$, then the above properties become obvious:
+\begin{equation}
+  S=
+  \begin{pmatrix}
+    \kappa_1 & 0 \\
+    0 & \kappa_2
+  \end{pmatrix}.
+  \label{eq:S}
+\end{equation}
+But this offers little help when we do not \emph{know} these values.
+
+Luckily $S$ is easily expressible in the basis of the derivatives of
+$\mathbf{x}$:
+\[S=I^{-1}I\!I,\]
+where $I$ and $I\!I$ are the first and second fundamental forms:
+\begin{align*}
+  I &= \begin{pmatrix}E&F\\F&G\end{pmatrix}, &
+  I\!I &= \begin{pmatrix}L&M\\M&N\end{pmatrix},
+\end{align*}
+\begin{align*}
+  E &= \langle\mathbf{x}_u,\mathbf{x}_u\rangle, &
+  F &= \langle\mathbf{x}_u,\mathbf{x}_v\rangle, &
+  G &= \langle\mathbf{x}_v,\mathbf{x}_v\rangle,\\
+  L &= \langle\mathbf{n},\mathbf{x}_{uu}\rangle, &
+  M &= \langle\mathbf{n},\mathbf{x}_{uv}\rangle, &
+  N &= \langle\mathbf{n},\mathbf{x}_{vv}\rangle,\\
+  && \mathbf{n} &= \frac{\mathbf{x}_u\times\mathbf{x}_v}{\|{\mathbf{x}_u\times\mathbf{x}_v}\|}. &&
+\end{align*}
+The drawback is that now the matrix of $S$ is not independent of the parameterization.
+
+Take Eq.~(\ref{eq:S}) and add the unit normal $\mathbf{n}$ as a
+third basis vector, i.e., using the basis ($\mathbf{e}_1$,
+$\mathbf{e}_2$, $\mathbf{n}$), bringing it into 3D space:
+\[
+  W=
+  \begin{pmatrix}
+    \kappa_1 & 0 & 0\\
+    0 & \kappa_2 & 0\\
+    0 & 0 & 0
+  \end{pmatrix}
+\]
+This is the \emph{embedded} Weingarten map, sometimes also called the
+curvature tensor (but this term is abused). All the properties still
+stand, except for the Gaussian curvature, which can be expressed as
+\[K = \frac{\mathrm{tr}(W)^2-\mathrm{tr}(W^2)}{2},\]
+and that there is an extra $0$ eigenvalue; normal curvatures are
+computed based on the projection of the given vector into the tangent plane.
+
+Now we can also use the axes of 3D space as a basis---which is also
+independent of parameterization---and write the matrix as
+\[W=\nabla\mathbf{x}^+I\!I\,\nabla\mathbf{x}^+,\]
+where $\nabla\mathbf{x}^+$ is the pseudoinverse of the gradient (a $3\times2$ matrix):
+\[\nabla\mathbf{x}^+=
+\nabla\mathbf{x}^\textsf{T}(\nabla\mathbf{x}\nabla\mathbf{x}^\textsf{T})^{-1}=
+\nabla\mathbf{x}^\textsf{T}I^{-1}=
+(I^{-1}\nabla\mathbf{x})^\textsf{T}.\]
+This formulation also has the advantage that its eigenvectors give the
+principal directions directly expressed in 3D coordinates. Note that
+while this matrix is exactly the same, independently of the
+parameterization, in exchange it \emph{does} depend on the
+coordinates, so e.g.~a rotation of 3D changes the elements of the
+matrix.
+\end{document}

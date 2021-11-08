@@ -44,11 +44,11 @@ But this offers little help when we do not \emph{know} these values.
 
 Luckily $\mathcal{S}$ is easily expressible in the basis of the derivatives of
 $\mathbf{x}$:
-\[\mathcal{S}=I^{-1}I\!I,\]
-where $I$ and $I\!I$ are the first and second fundamental forms:
+\[\mathcal{S}=\mathbf{I}^{-1}\mathbf{I\!I},\]
+where $\mathbf{I}$ and $\mathbf{I\!I}$ are the first and second fundamental forms:
 \begin{align*}
-  I &= \begin{pmatrix}E&F\\F&G\end{pmatrix}, &
-  I\!I &= \begin{pmatrix}L&M\\M&N\end{pmatrix},
+  \mathbf{I} &= \begin{pmatrix}E&F\\F&G\end{pmatrix}, &
+  \mathbf{I\!I} &= \begin{pmatrix}L&M\\M&N\end{pmatrix},
 \end{align*}
 \begin{align*}
   E &= \langle\mathbf{x}_u,\mathbf{x}_u\rangle, &
@@ -81,12 +81,13 @@ computed based on the projection of the given vector into the tangent plane.
 
 Now we can also use the axes of 3D space as a basis---which is also
 independent of parameterization---and write the matrix as
-\[\mathcal{W}=\nabla\mathbf{x}^+I\!I\,\nabla\mathbf{x}^+,\]
-where $\nabla\mathbf{x}^+$ is the pseudoinverse of the gradient (a $3\times2$ matrix):
-\[\nabla\mathbf{x}^+=
-\nabla\mathbf{x}^\textsf{T}(\nabla\mathbf{x}\nabla\mathbf{x}^\textsf{T})^{-1}=
-\nabla\mathbf{x}^\textsf{T}I^{-1}=
-(I^{-1}\nabla\mathbf{x})^\textsf{T}.\]
+\[\mathcal{W}=\mathbf{J}^\textsf{T}\cdot\mathbf{I\!I}\cdot\mathbf{J},\]
+where $\mathbf{J}$ is the $2\times3$ left pseudoinverse of the gradient:
+\[\mathbf{J}=
+\nabla\mathbf{x}^+=
+(\nabla\mathbf{x}^\textsf{T}\nabla\mathbf{x})^{-1}\nabla\mathbf{x}^\textsf{T}=
+\mathbf{I}^{-1}\nabla\mathbf{x}^\textsf{T}=
+(\nabla\mathbf{x}\cdot\mathbf{I}^{-1})^\textsf{T}.\]
 This formulation also has the advantage that its eigenvectors give the
 principal directions directly expressed in 3D coordinates. Note that
 while this matrix is exactly the same, independently of the
@@ -112,7 +113,7 @@ the shape operator can be expressed in ($\mathbf{u}$,$\mathbf{v}$) as
     f_{uv} & f_{vv}
   \end{pmatrix}.
   \]
-Solving the characteristic equation $(\mathcal{S}-I_2\kappa_i)\mathbf{e}_i=0$ with $i\in\{1,2\}$ gives
+Solving the characteristic equation $(\mathcal{S}-\mathbf{I}_2\kappa_i)\mathbf{e}_i=0$ with $i\in\{1,2\}$ gives
 \[
 \mathbf{e}_i=\mathbf{u}f_{uv}+\mathbf{v}(\kappa_if_n-f_{uu})
 \quad\text{or}\quad

@@ -44,7 +44,10 @@ But this offers little help when we do not \emph{know} these values.
 
 Luckily $\mathcal{S}$ is easily expressible in the basis of the derivatives of
 $\mathbf{x}$:
-\[\mathcal{S}=\mathbf{I}^{-1}\mathbf{I\!I},\]
+\begin{equation}
+  \mathcal{S}=\mathbf{I}^{-1}\mathbf{I\!I},
+  \label{eq:S2}
+\end{equation}
 where $\mathbf{I}$ and $\mathbf{I\!I}$ are the first and second fundamental forms:
 \begin{align*}
   \mathbf{I} &= \begin{pmatrix}E&F\\F&G\end{pmatrix}, &
@@ -81,7 +84,10 @@ computed based on the projection of the given vector into the tangent plane.
 
 Now we can also use the axes of 3D space as a basis---which is also
 independent of parameterization---and write the matrix as
-\[\mathcal{W}=(\mathbf{J}^+)^\textsf{T}\cdot\mathbf{I\!I}\cdot\mathbf{J}^+,\]
+\begin{equation}
+  \mathcal{W}=(\mathbf{J}^+)^\textsf{T}\cdot\mathbf{I\!I}\cdot\mathbf{J}^+,
+  \label{eq:W}
+\end{equation}
 where $\mathbf{J}^+$ is the left pseudoinverse of the Jacobian:
 \[\mathbf{J}^+=
 (\mathbf{J}^\textsf{T}\mathbf{J})^{-1}\mathbf{J}^\textsf{T}=
@@ -94,6 +100,8 @@ parameterization, in exchange it \emph{does} depend on the
 coordinates, so e.g.~a rotation in 3D changes the elements of the
 matrix.
 
+\subsection*{Implicit surfaces}
+
 For an implicitly defined surface $f(x,y,z)=0$ take two arbitrary
 perpendicular vectors ($\mathbf{u}$,$\mathbf{v}$) in the tangent
 plane, and let
@@ -105,13 +113,14 @@ plane, and let
 where $\mathbf{H}$ is the Hessian of $f$.
 If we denote the norm of the gradient with $f_n=\|\nabla f\|$,
 the shape operator can be expressed in ($\mathbf{u}$,$\mathbf{v}$) as
-\[
+\begin{equation}
   \mathcal{S}=\frac{1}{f_n}
   \begin{pmatrix}
     f_{uu} & f_{uv} \\
     f_{uv} & f_{vv}
   \end{pmatrix}.
-  \]
+  \label{eq:S3}
+\end{equation}
 Solving the characteristic equation $(\mathcal{S}-\mathbf{I}_2\kappa_i)\mathbf{e}_i=0$ with $i\in\{1,2\}$ gives
 \[
 \mathbf{e}_i=\mathbf{u}f_{uv}+\mathbf{v}(\kappa_if_n-f_{uu})
@@ -122,6 +131,33 @@ Solving the characteristic equation $(\mathcal{S}-\mathbf{I}_2\kappa_i)\mathbf{e
 so we can compute the principal directions without eigendecomposition,
 since $\kappa_i$ can be derived from
 \[\kappa_i=H\pm\sqrt{H^2-K}.\]
+
+The embedded Weingarten map can be computed as
+\begin{equation}
+  \mathcal{W}=\frac{1}{\|\nabla f\|}\cdot\mathbf{T}\cdot\mathbf{H}\cdot\mathbf{T},
+  \label{eq:W2}
+\end{equation}
+where $\mathbf{T}=\mathbf{I}_3-\mathbf{n}\mathbf{n}^\textsf{T}$ is the
+orthogonal projector onto the tangent plane, with $\mathbf{n}=\nabla
+f/\|\nabla f\|$ being the unit normal to the surface. Note that when
+$\|\nabla f\|=1$ (i.e., when $f$ is a signed distance function), the embedded
+Weingarten map is equal to the Hessian.
+
+The formulas for the Gaussian and mean curvatures can be expressed succintly
+as below:
+\begin{align*}
+  K &= \frac{\nabla f^\textsf{T} \cdot \mathrm{adj}(\mathbf{H}) \cdot \nabla f}{\|\nabla f\|^4},&
+  H &= \frac{\|\nabla f\|^2 \cdot \mathrm{tr}(\mathbf{H})
+  - \nabla f^\textsf{T} \cdot \mathbf{H} \cdot \nabla f}{2\|\nabla f\|^3}.
+\end{align*}
+
+Finally, a note on the sign of curvature values.
+They are relative to the orientation of the normal vector;
+conventionally they are defined such that in the implicit case
+(Eqs.~\ref{eq:S3} and~\ref{eq:W2}) they
+are positive when the surface curves \emph{away} from the normal direction,
+while in the parametric case (Eqs.~\ref{eq:S2} and~\ref{eq:W})
+the resulting curvatures have the opposite sign.
 
 \section*{References}
 On the shape operator, see any decent differential geometry textbook, e.g.:

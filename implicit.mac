@@ -1,0 +1,28 @@
+/* -*- mode: maxima -*- */
+
+load(nchrpl)$ /* for mattrace */
+
+/*
+  Prove that Goldman's formulas are the same
+  as those of the embedded Weingarten map.
+*/
+
+g: matrix([gx],[gy],[gz])$ /* gradient */
+H: matrix([fxx,fxy,fxz],[fxy,fyy,fyz],[fxz,fyz,fzz])$ /* Hessian */
+
+fn: sqrt(g . g)$
+n: g / fn$
+T: ident(3) - n . transpose(n)$
+W: T . H . T / fn$
+
+/* Gaussian curvature */
+K1: (mattrace(W)^2 - mattrace(W . W))/2$
+K2: transpose(g) . adjoint(H) . g / fn^4$
+
+/* Mean curvature */
+H1: mattrace(W)/2$
+H2: (fn^2 * mattrace(H) - transpose(g) . H . g) / (2 * fn^3)$
+
+/* These evaluate to 0 */
+hdiff: expand(xthru(expand(H1-H2)))$
+kdiff: ratexpand(xthru(ratexpand(K1-K2)))$
